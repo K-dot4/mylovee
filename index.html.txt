@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christine ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: #fff5f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Georgia, serif;
+        color: #333;
+    }
+
+    .card {
+        background: #ffffff;
+        padding: 50px 40px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 420px;
+        width: 90%;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+        font-weight: normal;
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-weight: normal;
+        font-size: 1.2rem;
+        color: #777;
+        margin-bottom: 40px;
+    }
+
+    .buttons {
+        position: relative;
+        height: 80px;
+    }
+
+    button {
+        padding: 12px 34px;
+        font-size: 1rem;
+        border-radius: 30px;
+        border: 1px solid #e63946;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        background: none;
+        position: absolute;
+        user-select: none;
+    }
+
+    #yes {
+        background: #e63946;
+        color: #fff;
+        left: 50%;
+        transform: translateX(-120%);
+    }
+
+    #yes:hover {
+        transform: translateX(-120%) scale(1.05);
+    }
+
+    #no {
+        color: #e63946;
+        left: 50%;
+        transform: translateX(20%);
+    }
+
+    #final {
+        display: none;
+        margin-top: 30px;
+        font-size: 1.3rem;
+        color: #e63946;
+        animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Christine,</h1>
+    <h2>will you be my Valentine?</h2>
+
+    <div class="buttons">
+        <button id="yes" onclick="accept()">Yes ❤️</button>
+        <button id="no" onmouseover="escapeNo()">No</button>
+    </div>
+
+    <div id="final">
+        You just made my heart smile.  
+        Happy Valentine’s Day 💕
+    </div>
+</div>
+
+<script>
+    let tries = 0;
+
+    function escapeNo() {
+        const no = document.getElementById("no");
+        tries++;
+
+        const x = Math.random() * 260 - 130;
+        const y = Math.random() * 120 - 60;
+
+        no.style.transform = `translate(${x}px, ${y}px)`;
+
+        if (tries >= 4) {
+            no.style.display = "none";
+        }
+    }
+
+    function accept() {
+        document.querySelector(".buttons").style.display = "none";
+        document.getElementById("final").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
